@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schema-forge"
+version = "1.0.0"
+description = "Infer JSON Schema data contracts from messy CSV/JSON with per-column confidence, validate new data against them in CI, and diff schema versions for breaking changes. Pure Python."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "kele" }]
+keywords = ["data-contracts", "json-schema", "csv", "validation", "data-quality", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Software Development :: Quality Assurance",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.scripts]
+schema-forge = "schema_forge.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+# UP031: percent-formatting is deliberate in the renderers and fixtures; it keeps
+# long table rows readable and avoids nested brace escaping.
+ignore = ["SIM108", "UP031"]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/generate_orders.py" = ["E501"]
+"benchmarks/run.py" = ["E501"]

@@ -1,0 +1,114 @@
+{
+  "lockfile_version": 1,
+  "generator": "schema-forge/1.0.0",
+  "contract": "orders",
+  "source": "orders.csv",
+  "format": "csv",
+  "rows": 200,
+  "column_count": 16,
+  "contract_sha256": "27fe41ded6085a60beb94a6ac16d9563a7aafbf10819685f9643ee3a7d01f3f2",
+  "enforcement": {
+    "additionalProperties": false,
+    "properties": {
+      "order_id": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}\\-\\d{5}$"
+      },
+      "customer_name": {
+        "type": "string",
+        "pattern": "^[A-Z]{1}[a-z]{2,7}\\s[A-Z]{1}[a-z]{3,9}$"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "country": {
+        "type": "string",
+        "enum": [
+          "BR",
+          "DE",
+          "FR",
+          "GB",
+          "IN",
+          "JP",
+          "US"
+        ]
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "cancelled",
+          "delivered",
+          "pending",
+          "refunded",
+          "shiped",
+          "shipped"
+        ]
+      },
+      "amount": {
+        "type": "string"
+      },
+      "tax": {
+        "type": "number"
+      },
+      "quantity": {
+        "type": "integer"
+      },
+      "created_at": {
+        "type": "string"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "card_number": {
+        "type": "string",
+        "pattern": "^\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}$"
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "^\\+\\d{1}\\s\\d{3}\\s\\d{3}\\s\\d{4}$"
+      },
+      "is_gift": {
+        "type": "boolean"
+      },
+      "sku": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}\\-[A-Z]{2}\\-\\d{4}$"
+      },
+      "website": {
+        "type": "string",
+        "format": "uri"
+      },
+      "notes": {
+        "type": "string",
+        "enum": [
+          "buzzer is broken",
+          "call before delivery",
+          "deliver after 6pm",
+          "fragile",
+          "gift wrap requested",
+          "leave at door",
+          "post to neighbour",
+          "second attempt"
+        ]
+      }
+    },
+    "required": [
+      "amount",
+      "card_number",
+      "country",
+      "created_at",
+      "customer_name",
+      "is_gift",
+      "order_id",
+      "phone",
+      "quantity",
+      "sku",
+      "status",
+      "tax",
+      "updated_at",
+      "website"
+    ]
+  }
+}

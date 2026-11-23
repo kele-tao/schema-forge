@@ -1,0 +1,101 @@
+{
+  "machine": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD"
+  },
+  "benchmarks": [
+    {
+      "name": "infer",
+      "rows": 1000,
+      "input_mb": 0.1,
+      "seconds": 0.173,
+      "rows_per_second": 5767,
+      "samples": [
+        0.173,
+        0.186,
+        0.181
+      ]
+    },
+    {
+      "name": "validate",
+      "rows": 1000,
+      "input_mb": 0.1,
+      "seconds": 0.026,
+      "rows_per_second": 38973,
+      "cells": 9000,
+      "samples": [
+        0.026,
+        0.026,
+        0.027
+      ]
+    },
+    {
+      "name": "infer",
+      "rows": 10000,
+      "input_mb": 0.97,
+      "seconds": 0.624,
+      "rows_per_second": 16026,
+      "samples": [
+        0.664,
+        0.624,
+        0.67
+      ]
+    },
+    {
+      "name": "validate",
+      "rows": 10000,
+      "input_mb": 0.97,
+      "seconds": 0.326,
+      "rows_per_second": 30663,
+      "cells": 90000,
+      "samples": [
+        0.349,
+        0.326,
+        0.331
+      ]
+    },
+    {
+      "name": "infer",
+      "rows": 50000,
+      "input_mb": 4.91,
+      "seconds": 1.981,
+      "rows_per_second": 25246,
+      "samples": [
+        1.981,
+        2.275,
+        2.296
+      ]
+    },
+    {
+      "name": "validate",
+      "rows": 50000,
+      "input_mb": 4.91,
+      "seconds": 1.625,
+      "rows_per_second": 30776,
+      "cells": 450000,
+      "samples": [
+        1.969,
+        1.675,
+        1.625
+      ]
+    },
+    {
+      "name": "diff",
+      "columns": 9,
+      "seconds": 4.2e-05,
+      "changes": 1,
+      "breaking": 1,
+      "samples": [
+        8.2e-05,
+        5.8e-05,
+        4.2e-05
+      ]
+    }
+  ],
+  "memory": {
+    "peak_tracemalloc_mb": 3.77,
+    "input_mb": 4.91,
+    "rows": 50000
+  }
+}

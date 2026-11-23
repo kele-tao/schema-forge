@@ -1,0 +1,963 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kele-tao/schema-forge/contracts/orders.schema.json",
+  "title": "orders",
+  "description": "Data contract inferred by schema-forge/1.0.0 from orders.csv (200 rows, 16 columns). Statistics and the contract hash are deterministic for identical input.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "order_id",
+    "customer_name",
+    "country",
+    "status",
+    "amount",
+    "tax",
+    "quantity",
+    "created_at",
+    "updated_at",
+    "card_number",
+    "phone",
+    "is_gift",
+    "sku",
+    "website"
+  ],
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}\\-\\d{5}$",
+      "description": "text column inferred with confidence 0.60; 200 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "text",
+        "confidence": 0.6,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.6,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 9,
+          "max_length": 9,
+          "distinct": 200,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "ORD-10001",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "ORD-10002",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "ORD-10003",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "pattern": "^[A-Z]{3}\\-\\d{5}$"
+      }
+    },
+    "customer_name": {
+      "type": "string",
+      "pattern": "^[A-Z]{1}[a-z]{2,7}\\s[A-Z]{1}[a-z]{3,9}$",
+      "description": "text column inferred with confidence 0.60; 156 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "text",
+        "confidence": 0.6,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.6,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 156,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 9,
+          "max_length": 19,
+          "distinct": 156,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "Ken Dijkstra",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "Grace Dijkstra",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "Frances Lamarr",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "pattern": "^[A-Z]{1}[a-z]{2,7}\\s[A-Z]{1}[a-z]{3,9}$"
+      }
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "email column inferred with confidence 0.98; 197 distinct values; 1.0% empty; PII (email): mask the local part before export",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "email",
+        "confidence": 0.98,
+        "confidence_parts": {
+          "fill_rate": 0.99,
+          "type_support": 1.0,
+          "specificity": 0.99,
+          "sample_depth": 1.0
+        },
+        "nullable": true,
+        "null_ratio": 0.01,
+        "seen_rows": 200,
+        "distinct": 197,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 20,
+          "max_length": 36,
+          "distinct": 197,
+          "filled": 198
+        },
+        "candidates": [
+          {
+            "kind": "email",
+            "score": 1.0,
+            "matched": 198
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "ken.dijkstra@example.org",
+            "matched": [
+              "email"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "grace.dijkstra@mail.example.net",
+            "matched": [
+              "email"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "frances.lamarr@mail.example.net",
+            "matched": [
+              "email"
+            ]
+          }
+        ],
+        "notes": [
+          "PII email detected in 198/198 values (100%)"
+        ],
+        "pii": {
+          "kind": "email",
+          "match_ratio": 1.0,
+          "mask_example": "k***@example.org",
+          "advice": "mask the local part before export"
+        }
+      }
+    },
+    "country": {
+      "type": "string",
+      "enum": [
+        "BR",
+        "DE",
+        "FR",
+        "IN",
+        "US",
+        "JP",
+        "GB"
+      ],
+      "description": "enum column inferred with confidence 0.90; 7 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "enum",
+        "confidence": 0.9,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.9,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 7,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 2,
+          "max_length": 2,
+          "distinct": 7,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "US",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "DE",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "FR",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "enum": [
+          "BR",
+          "DE",
+          "FR",
+          "IN",
+          "US",
+          "JP",
+          "GB"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "cancelled",
+        "pending",
+        "shipped",
+        "delivered",
+        "refunded",
+        "shiped"
+      ],
+      "description": "enum column inferred with confidence 0.90; 6 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "enum",
+        "confidence": 0.9,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.9,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 6,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 6,
+          "max_length": 9,
+          "distinct": 6,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "cancelled",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "delivered",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "pending",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "enum": [
+          "cancelled",
+          "pending",
+          "shipped",
+          "delivered",
+          "refunded",
+          "shiped"
+        ],
+        "enum_typos": {
+          "shiped": "shipped"
+        }
+      }
+    },
+    "amount": {
+      "type": "string",
+      "description": "currency column inferred with confidence 0.93; 200 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "currency",
+        "confidence": 0.93,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.93,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 6,
+          "max_length": 9,
+          "distinct": 200,
+          "filled": 200,
+          "min": 14.08,
+          "max": 4763.37,
+          "mean": 2391.3623
+        },
+        "candidates": [
+          {
+            "kind": "currency",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "$3,417.77",
+            "matched": [
+              "currency"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "$2,202.49",
+            "matched": [
+              "currency"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "$3,016.63",
+            "matched": [
+              "currency"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "tax": {
+      "type": "number",
+      "description": "float column inferred with confidence 0.95; 196 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "float",
+        "confidence": 0.95,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.95,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 196,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 4,
+          "max_length": 5,
+          "distinct": 196,
+          "filled": 200,
+          "min": 0.54,
+          "max": 39.73,
+          "mean": 19.96405
+        },
+        "candidates": [
+          {
+            "kind": "float",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "3.46",
+            "matched": [
+              "float"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "22.64",
+            "matched": [
+              "float"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "22.01",
+            "matched": [
+              "float"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "int column inferred with confidence 0.97; 12 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "int",
+        "confidence": 0.97,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.97,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 12,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 1,
+          "max_length": 2,
+          "distinct": 12,
+          "filled": 200,
+          "min": 1,
+          "max": 12,
+          "mean": 6.25
+        },
+        "candidates": [
+          {
+            "kind": "int",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "9",
+            "matched": [
+              "int"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "2",
+            "matched": [
+              "int"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "8",
+            "matched": [
+              "int"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "description": "date column inferred with confidence 0.96; 180 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "date",
+        "confidence": 0.96,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.96,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 180,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 10,
+          "max_length": 12,
+          "distinct": 180,
+          "filled": 200
+        },
+        "candidates": [
+          {
+            "kind": "date",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "2026-06-04",
+            "matched": [
+              "date"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "2026-05-19",
+            "matched": [
+              "date"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "Dec 11, 2026",
+            "matched": [
+              "date"
+            ]
+          }
+        ],
+        "notes": [
+          "mixed date formats: %Y-%m-%d, %b %d, %Y, %d/%m/%Y, %m/%d/%Y, %B %d, %Y; day/month order is ambiguous, pin one format downstream"
+        ],
+        "formats": [
+          "%Y-%m-%d",
+          "%b %d, %Y",
+          "%d/%m/%Y",
+          "%m/%d/%Y",
+          "%B %d, %Y"
+        ]
+      }
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "datetime column inferred with confidence 0.96; 200 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "datetime",
+        "confidence": 0.96,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.96,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 20,
+          "max_length": 20,
+          "distinct": 200,
+          "filled": 200
+        },
+        "candidates": [
+          {
+            "kind": "datetime",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "2026-09-07T01:05:00Z",
+            "matched": [
+              "datetime"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "2026-02-19T18:40:00Z",
+            "matched": [
+              "datetime"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "2026-05-20T02:07:00Z",
+            "matched": [
+              "datetime"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "card_number": {
+      "type": "string",
+      "pattern": "^\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}$",
+      "description": "text column inferred with confidence 0.60; 200 distinct values; PII (card): never log or export card numbers; keep the last 4 digits",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "text",
+        "confidence": 0.6,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.6,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 19,
+          "max_length": 19,
+          "distinct": 200,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "6011 6613 1860 9131",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "4242 3518 1909 3789",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "4000 8625 2760 1897",
+            "matched": []
+          }
+        ],
+        "notes": [
+          "PII card detected in 200/200 values (100%)"
+        ],
+        "pattern": "^\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}$",
+        "pii": {
+          "kind": "card",
+          "match_ratio": 1.0,
+          "mask_example": "**** **** **** 9131",
+          "advice": "never log or export card numbers; keep the last 4 digits"
+        }
+      }
+    },
+    "phone": {
+      "type": "string",
+      "pattern": "^\\+\\d{1}\\s\\d{3}\\s\\d{3}\\s\\d{4}$",
+      "description": "text column inferred with confidence 0.60; 200 distinct values; PII (phone): keep the last 4 digits only",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "text",
+        "confidence": 0.6,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.6,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 15,
+          "max_length": 15,
+          "distinct": 200,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "+1 845 555 9552",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "+1 637 555 5147",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "+1 521 555 5573",
+            "matched": []
+          }
+        ],
+        "notes": [
+          "PII phone detected in 200/200 values (100%)"
+        ],
+        "pattern": "^\\+\\d{1}\\s\\d{3}\\s\\d{3}\\s\\d{4}$",
+        "pii": {
+          "kind": "phone",
+          "match_ratio": 1.0,
+          "mask_example": "+* *** *** 9552",
+          "advice": "keep the last 4 digits only"
+        }
+      }
+    },
+    "is_gift": {
+      "type": "boolean",
+      "description": "bool column inferred with confidence 0.98; 2 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "bool",
+        "confidence": 0.98,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.98,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 2,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 4,
+          "max_length": 5,
+          "distinct": 2,
+          "filled": 200
+        },
+        "candidates": [
+          {
+            "kind": "bool",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "true",
+            "matched": [
+              "bool"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "false",
+            "matched": [
+              "bool"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "false",
+            "matched": [
+              "bool"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "sku": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}\\-[A-Z]{2}\\-\\d{4}$",
+      "description": "text column inferred with confidence 0.60; 200 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "text",
+        "confidence": 0.6,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.6,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 200,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 11,
+          "max_length": 11,
+          "distinct": 200,
+          "filled": 200
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "SKU-UU-6500",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "SKU-UQ-5925",
+            "matched": []
+          },
+          {
+            "location": "row 4",
+            "value": "SKU-VR-9502",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "pattern": "^[A-Z]{3}\\-[A-Z]{2}\\-\\d{4}$"
+      }
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "url column inferred with confidence 0.95; 198 distinct values",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "url",
+        "confidence": 0.95,
+        "confidence_parts": {
+          "fill_rate": 1.0,
+          "type_support": 1.0,
+          "specificity": 0.95,
+          "sample_depth": 1.0
+        },
+        "nullable": false,
+        "null_ratio": 0.0,
+        "seen_rows": 200,
+        "distinct": 198,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 34,
+          "max_length": 34,
+          "distinct": 198,
+          "filled": 200
+        },
+        "candidates": [
+          {
+            "kind": "url",
+            "score": 1.0,
+            "matched": 200
+          }
+        ],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "https://shop.example.com/item/0813",
+            "matched": [
+              "url"
+            ]
+          },
+          {
+            "location": "row 3",
+            "value": "https://shop.example.com/item/4912",
+            "matched": [
+              "url"
+            ]
+          },
+          {
+            "location": "row 4",
+            "value": "https://shop.example.com/item/7475",
+            "matched": [
+              "url"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    },
+    "notes": {
+      "type": "string",
+      "enum": [
+        "gift wrap requested",
+        "buzzer is broken",
+        "post to neighbour",
+        "second attempt",
+        "call before delivery",
+        "leave at door",
+        "fragile",
+        "deliver after 6pm"
+      ],
+      "description": "enum column inferred with confidence 0.66; 8 distinct values; 26.5% empty",
+      "x-schema-forge": {
+        "generator": "schema-forge/1.0.0",
+        "type": "enum",
+        "confidence": 0.66,
+        "confidence_parts": {
+          "fill_rate": 0.735,
+          "type_support": 1.0,
+          "specificity": 0.9,
+          "sample_depth": 1.0
+        },
+        "nullable": true,
+        "null_ratio": 0.265,
+        "seen_rows": 200,
+        "distinct": 8,
+        "sample_size": 200,
+        "stats": {
+          "min_length": 7,
+          "max_length": 20,
+          "distinct": 8,
+          "filled": 147
+        },
+        "candidates": [],
+        "evidence": [
+          {
+            "location": "row 2",
+            "value": "gift wrap requested",
+            "matched": []
+          },
+          {
+            "location": "row 3",
+            "value": "gift wrap requested",
+            "matched": []
+          },
+          {
+            "location": "row 5",
+            "value": "fragile",
+            "matched": []
+          }
+        ],
+        "notes": [],
+        "enum": [
+          "gift wrap requested",
+          "buzzer is broken",
+          "post to neighbour",
+          "second attempt",
+          "call before delivery",
+          "leave at door",
+          "fragile",
+          "deliver after 6pm"
+        ]
+      }
+    }
+  },
+  "x-schema-forge": {
+    "generator": "schema-forge/1.0.0",
+    "source": "orders.csv",
+    "format": "csv",
+    "rows": 200,
+    "column_count": 16,
+    "contract_hash": "27fe41ded6085a60beb94a6ac16d9563a7aafbf10819685f9643ee3a7d01f3f2",
+    "warnings": []
+  }
+}

@@ -1,0 +1,35 @@
+name: Bug report
+description: Something inferred or validated the wrong way
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for the report. A tiny reproducing file beats a long description.
+  - type: input
+    id: version
+    attributes:
+      label: schema-forge version
+      description: Output of `schema-forge --version`
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The exact command you ran
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Paste stdout/stderr, and the smallest input that reproduces it
+    validations:
+      required: true
