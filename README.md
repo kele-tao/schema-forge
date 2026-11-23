@@ -1,5 +1,7 @@
 # schema-forge
 
+**English** | [简体中文](README.zh-CN.md)
+
 **Infer a data contract from a messy CSV once, commit it, and let CI fail the moment a producer silently changes a column type.**
 
 ![ci](https://img.shields.io/badge/ci-python%203.10%20%7C%203.11%20%7C%203.12-blue)
